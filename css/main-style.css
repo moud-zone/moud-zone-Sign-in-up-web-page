@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Oswald:wght@200..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+   font-family: "Oswald", Sans-Serif;
+   height: 100vh;
+   background: #000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.container {
+   width: 768px;
+   min-height: 450px;
+   background-color: #fff;
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: 2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px rgba(0,0,0,0.3);
+   position: relative;
+}
+
+form {
+   height: 100%;
+   width: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 0 40px;
+   position: absolute;
+   top: 0;
+   transition: 0.9s ease-in-out;
+}
+
+form.sign-in-container {
+   left: 0;
+}
+
+form.sign-up-container {
+   left: 50%;
+   opacity: 0;
+}
+
+h1 {
+   font-weight: bold;
+   margin: 0 0 20px;
+}
+input {
+   width: 100%;
+   border-radius: 30px;
+   border: none;
+   margin: 0 0 10px;
+   padding: 12px 15px;
+   box-shadow: 1px 2px 1px rgba(0,0,0,0.3), inset 1px 2px 1px rgba(0,0,0,0.3);
+}
+a {
+   text-decoration: none;
+   font-size: 14px;
+   color: #333;
+}
+a:hover {
+   color: #006ca3;
+}
+span {
+   margin: 20px;
+   font-size: 14px;
+}
+button {
+   background-color: #006ca3;
+   color: #fff;
+   border-radius: 30px;
+   border: 2px solid #006ca3;
+   padding: 12px 40px;
+   font-size: 15px;
+   font-weight: bold;
+   letter-spacing: 0.7;
+   margin: 10px 0 0;
+   transition: 0.3s ;
+}
+button:hover {
+   background: transparent;
+   color: #006ca3;
+}
+button:active {
+   transform: scale(0.9);
+}
+.overlay .ghost {
+   background: transparent;
+   border-color: #fff;
+}
+
+.social {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 5px;
+}
+.social a {
+   font-size: 20px;
+   width: 40px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid #333;
+   border-radius: 50%;
+   padding: 8px;
+}
+
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+  display: none;
+}
+.switch span {
+  color: #006ca3;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 5px;
+}
+.switch span:hover {
+  text-decoration: underline;
+}
+
+.overlay {
+   height: 100%;
+   width: 100%;
+   background: linear-gradient(90deg, #006ca3,#22acff);
+   background-size: cover;
+   background-repeat: no-repeat;
+   position: absolute;
+   border: none;
+   border-radius: 70px;
+   left: 50%;
+   transition: 0.3s ease-in-out;
+}
+
+.overlay-panal {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   height: 100%;
+   width: 50%;
+   position: absolute;
+   top: 0;
+   transition: 0.3s ease-in-out;
+}
+
+.overlay .right {
+   left: 0%;
+}
+.overlay .left {
+   left: -100%;
+}
+
+
+/*....................*/
+.container.active .sign-in-container {
+   opacity: 0;
+}
+.container.active .sign-up-container {
+   opacity: 1;
+}
+.container.active .overlay {
+   left: -50%;
+}
+.container.active .overlay .right {
+   left: 150%;
+}
+.container.active .overlay .left {
+   left: 50%;
+}
+
+
+/*....................................*/
+
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+   }
+   .switch {
+      display: block;
+   }
+   form.sign-in-container {
+      width: 100%;
+      left: 50%;
+      transform: translatex(-50%);
+      display: flex;
+      opacity: 1;
+      transition: 0.4;
+   }
+   form.sign-up-container {
+      width: 100%;
+      left: 50%;
+      transform: translatex(-50%);
+      display: none;
+      opacity: 0;
+      transition: 0.4;
+   }
+
+  .container.active .sign-in-container {
+    display: none;
+    opacity: 0;
+  }
+
+  .container.active .sign-up-container {
+    display: flex;
+    opacity: 1;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
